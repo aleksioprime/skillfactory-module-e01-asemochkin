@@ -12,6 +12,8 @@ def guess_letter(letters, word):
 def isWin(letters, word):
     if len(letters) == len(set(word)):
         return True
+    else: 
+        return False
 
 def start():
     penalty = 0
