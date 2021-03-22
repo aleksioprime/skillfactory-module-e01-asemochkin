@@ -6,6 +6,19 @@ def get_word():
     words = ['skillfactory', 'testing', 'blackbox', 'pytest', 'unittest', 'coverage']
     return random.choice(words)
 
+def input_letter(letters):
+    while True:
+        letter = input("Буква: ")
+        if len(letter) != 1:
+            print('[Error] Вы ввели много символов или ничего не ввели.', end=' ')
+        elif not letter.isalpha():
+            print('[Error] Вы ввели не букву.', end=' ')
+        elif letter in letters:
+            print('[Error] Вы уже вводили эту букву.', end=' ')
+        else:
+            return letter
+        print('Повторите ввод')
+
 def guess_letter(letters, word):
     return ' '. join(list(map(lambda x: x.upper() if x in letters else '_', word)))
 
@@ -15,15 +28,15 @@ def isWin(letters, word):
     else: 
         return False
 
-def start():
+def game():
     penalty = 0
     win = False;
     hidden_word = get_word()
     print('Загадано слово состоит из', len(hidden_word), 'букв')
     guessed_letters = []
     while penalty < 4:
-        letter = input("Буква: ")
-        if len(letter) != 1 or not letter.isalpha() or letter not in hidden_word or letter in guessed_letters:
+        letter = input_letter(guessed_letters)
+        if letter not in hidden_word:
             print('Ошибка, вам начислен штраф')
             penalty += 1 
         else:
@@ -36,7 +49,7 @@ def start():
     return win
 
 if __name__ == '__main__':
-    if start():
+    if game():
         print('Вы выиграли')
     else:
         print('Вы проиграли')
