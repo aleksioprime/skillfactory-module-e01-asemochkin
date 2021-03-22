@@ -3,6 +3,6 @@
 
 [![Travis][build-badge]][build]
 
-[build-badge]: https://img.shields.io/travis/aleksioprime/skillfactory-module-e01-asemochkin/master.png?style=flat-square
+[build-badge]: https://travis-ci.org/aleksioprime/skillfactory-module-e01-asemochkin.svg?branch=main
 
 [build]: https://travis-ci.org/aleksioprime/skillfactory-module-e01-asemochkin
